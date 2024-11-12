@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iframe Content</title>
+    <style>
+        #error-message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
     <script>
         function changeParentFont() {
-            // Check if the iframe is allowed to access the parent
-            if (window.parent && window.parent.document) {
-                window.parent.document.body.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
+            try {
+                // Attempt to change the font of the parent document
+                if (window.parent && window.parent.document) {
+                    window.parent.document.body.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
+                    console.log("Font changed to Comic Sans MS.");
+                }
+            } catch (error) {
+                // If an error occurs (likely due to cross-origin restrictions), display a message
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = "Error: Unable to change the parent's font due to cross-origin restrictions.";
+                console.error(error);
             }
         }
 
-        // Call the function to change the font once the iframe content is loaded
+        // Call the function to attempt the font change once the iframe content is loaded
         window.onload = changeParentFont;
     </script>
 </head>
 <body>
-    <h2>aaaa</h2>
-    <p>aaaaaaaaa</p>
+    <h2>This is iframe content.</h2>
+    <p>Attempting to change the font of the parent page.</p>
+    <p id="error-message"></p>
 </body>
 </html>
