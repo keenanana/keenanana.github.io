@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Sans Paragraph</title>
+    <title>Comic Sans Paragraph1</title>
     <!-- Include jQuery from a CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <p id="info" style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
-        This is a paragraph styled in Comic Sans:
+    <p style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+        This is a paragraph styled in Comic Sans.
     </p>
-
-    <p id="pageTitle" style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
-        text to replace
-    </p>
+    <p id="pageTitle"></p>
 
     <script>
-        // Use jQuery to display the page title
-        $(document).ready(function(){
-            var title = $("title").text();
+        // Use jQuery to display the page title in the paragraph with id "pageTitle"
+        $(document).ready(function() {
+            var title = document.title; // Get the title of the current page
             $("#pageTitle").text("Page Title: " + title);
         });
     </script>
