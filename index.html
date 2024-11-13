@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comic Sans Paragraph</title>
+    <!-- Include jQuery from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <p style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+    <p id="pageTitle" style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
         This is a paragraph styled in Comic Sans.
     </p>
+
+    <script>
+        // Use jQuery to display the page title
+        $(document).ready(function(){
+            var title = $("title").text();
+            $("#pageTitle").text("Page Title: " + title);
+        });
+    </script>
 </body>
 </html>
