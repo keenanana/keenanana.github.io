@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Sans Paragraph1</title>
-    <!-- Include jQuery from a CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Embedded Content</title>
 </head>
 <body>
-    <p style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
-        This is a paragraph styled in Comic Sans.
-    </p>
-    <p id="pageTitle"></p>
 
-    <script>
-        // Use jQuery to display the page title in the paragraph with id "pageTitle"
-        $(document).ready(function() {
-            var title = document.title; // Get the title of the current page
-            $("#pageTitle").text("Page Title: " + title);
-        });
-    </script>
+<div id="parent-title"></div>
+
+<script>
+    // Check if the script is running in an iframe
+    if (window.parent && window.parent !== window) {
+        // Access the parent document's title
+        document.getElementById('parent-title').textContent = window.parent.document.title;
+    } else {
+        document.getElementById('parent-title').textContent = 'Not inside an iframe';
+    }
+</script>
+
 </body>
 </html>
