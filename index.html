@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Content</title>
+    <style>
+        .comic-sans {
+            font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+        }
+    </style>
 </head>
 <body>
-
-<div id="parent-title"></div>
-
-<script>
-    // Check if the script is running in an iframe
-    if (window.parent && window.parent !== window) {
-        // Access the parent document's title
-        document.getElementById('parent-title').textContent = window.parent.document.title;
-    } else {
-        document.getElementById('parent-title').textContent = 'Not inside an iframe';
-    }
-</script>
-
+    <p class="comic-sans">This is a paragraph in Comic Sans.</p>
 </body>
 </html>
